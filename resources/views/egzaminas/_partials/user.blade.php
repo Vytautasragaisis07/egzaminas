@@ -8,7 +8,6 @@
                 </tr>
             @endforeach
             <li class="nav-item dropdown">
-                <span class="d-none d-md-inline-block"> {{ Account::user()->name }} </span>
                 <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="../../images/avatars/0.png" alt="User Avatar">
                     <span class="d-none d-md-inline-block"> {{ Auth::user()->name }} </span>

@@ -56,7 +56,9 @@
 
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <input type="submit" value="Make transfer" name="submit" class="btn btn-primary py-2 px-4 text-white">
+                                <div class="row justify-content-center mt-5">
+                                <input type="submit" value="Atlikti pavedimą" name="submit" class="btn btn-primary py-2 px-4 text-white">
+                                </div>
                             </div>
                         </div>
                     </form>

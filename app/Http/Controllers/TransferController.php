@@ -19,10 +19,10 @@ class TransferController extends Controller
 	public function makeTransfer()
     {
         $transfers = Transfer::all();
-		$accounts = Account::all();
+        $userId = Auth::user()->id;
+        $accounts = Account::where('user_id', $userId)->get();
         return view ('egzaminas.pages.maketransfer', compact('transfers', 'accounts'));
     }
-
 	public function store_transfer(Request $request)
     {
         $validateData = $request->validate([
@@ -39,11 +39,13 @@ class TransferController extends Controller
             'name' => request('name')
         ]);
 
-        return redirect('home');
+        return redirect('/transfer_summary');
     }
 
 	public function Transfersummary(){
 		$transfers = Transfer::all();
-		return view ('egzaminas.pages.accountsummary', compact('transfers'));
+        $userId = Auth::user()->id;
+        $accounts = Account::where('user_id', $userId)->get();
+		return view ('egzaminas.pages.accountsummary', compact('transfers', 'accounts'));
 	}
 }
