@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Account;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +23,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function atsijungti()
+    {
+        Auth::logout();
+
+        return redirect('/');
+    }
     public function index()
     {
-        return view('home');
+        $userId = Auth::user()->id;
+        $accounts = Account::where('user_id', $userId)->get();
+
+        return view ('egzaminas.pages.home', compact('accounts'));
     }
 }
